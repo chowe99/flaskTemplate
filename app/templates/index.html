@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hangman</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='hangman.css') }}">
+        {%if title %}
+        <title>{{title}}</title>
+        {%else%}
+        <title>blank home page</title>
+        {%endif%}
+        <link rel="stylesheet" href="">
     </head>
 
     <body>
-        <h1>Welcome to our Hangman project</h1>
+        <h1>Welcome to our Hangman project, {{user.username}}</h1>
+
+        {%for quote in quotes%}
+        <div>
+            <p><strong>{{quote.text}}</strong> - {{quote.author.username}}</p>
+        </div>
+        {%endfor%}
     </body>
-</html> 
+</html>   
